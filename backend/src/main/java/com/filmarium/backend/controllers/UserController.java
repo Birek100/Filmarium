@@ -1,11 +1,9 @@
 package com.filmarium.backend.controllers;
 
 import com.filmarium.backend.entities.User;
+import com.filmarium.backend.entities.UserRole;
 import com.filmarium.backend.services.UserService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,9 +18,29 @@ public class UserController {
         this.userService = userService;
     }
 
-    // (GET http://localhost:8080/users)
-    @GetMapping
+    // (GET http://localhost:8080/users/get)
+    @GetMapping("/get")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
+    }
+
+
+    @PostMapping("/")
+    public User saveUser(@RequestBody User user) {
+        return userService.addUser(
+                user.getName(),
+                user.getEmail(),
+                user.getPassword(),
+                user.getRole()
+        );
+    }
+    @DeleteMapping ("/{id}")
+    public void deleteUser(@PathVariable long id) {
+        userService.deleteUser(id);
+    }
+
+    @PatchMapping ("/{id}")
+    public User updateUser(@PathVariable long id, @RequestBody User user) {
+        return userService.updateUser(user, id);
     }
 }
