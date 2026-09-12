@@ -1,11 +1,16 @@
+import Header from './components/header/header';
+
 
 
 function App() {
   
-
   return (
-    <h1>Filmarium</h1>
-  )
-}
+    <div className="app">
+      
+        <Header />
+        
 
+    </div>
+  ) 
+  }
 export default App
