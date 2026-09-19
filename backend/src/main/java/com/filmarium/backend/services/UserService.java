@@ -20,6 +20,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User getUserById(long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+    }
+
     public User addUser(String name, String email, String password, UserRole role) {
         User user = new User(name, email, password, role);
         return userRepository.save(user);

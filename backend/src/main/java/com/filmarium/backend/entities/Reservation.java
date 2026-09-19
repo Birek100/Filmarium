@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "movies")
+@Table(name = "reservations")
 public class Reservation {
+
 }

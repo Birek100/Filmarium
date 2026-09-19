@@ -1,7 +1,6 @@
 package com.filmarium.backend.controllers;
 
 import com.filmarium.backend.entities.User;
-import com.filmarium.backend.entities.UserRole;
 import com.filmarium.backend.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +17,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    // (GET http://localhost:8080/users/get)
-    @GetMapping("/get")
+    // (GET http://localhost:8080/users/)
+
+    @GetMapping("/")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
@@ -34,6 +34,11 @@ public class UserController {
                 user.getRole()
         );
     }
+    @GetMapping ("/{id}")
+    public User getUserById(@PathVariable long id) {
+       return userService.getUserById(id);
+    }
+
     @DeleteMapping ("/{id}")
     public void deleteUser(@PathVariable long id) {
         userService.deleteUser(id);
