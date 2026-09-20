@@ -1,7 +1,6 @@
 package com.filmarium.backend.services;
 
 import com.filmarium.backend.entities.Movie;
-import com.filmarium.backend.entities.User;
 import com.filmarium.backend.repositories.MovieRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ public class MovieService {
 
     public List<Movie> getAllMovies() { return movieRepository.findAll();}
 
-    public Movie getMovieById(long id) {
+    public Movie getMovieById(Long id) {
         return movieRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Movie not found with id: " + id));
     }
@@ -30,7 +29,7 @@ public class MovieService {
         return movieRepository.save(movie);
     }
 
-    public Movie updateMovie (Movie movie, long id) {
+    public Movie updateMovie (Movie movie, Long id) {
         Movie existingMovie = movieRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Movie not found with id: " + id));
         existingMovie.setTitle(movie.getTitle());
@@ -40,7 +39,7 @@ public class MovieService {
         return movieRepository.save(existingMovie);
     }
 
-    public void deleteMovie (long id) {
+    public void deleteMovie (Long id) {
         Movie movie = movieRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Movie not found with id: " + id));
         movieRepository.delete(movie);
