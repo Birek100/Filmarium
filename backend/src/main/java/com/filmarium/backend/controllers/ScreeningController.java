@@ -1,19 +1,19 @@
 package com.filmarium.backend.controllers;
 
-import com.filmarium.backend.services.ScreeningService;
+import com.filmarium.backend.services.CinemaHallService;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 @RequestMapping("/screenings")
 public class ScreeningController {
-        private final ScreeningService screeningService;
+        private final CinemaHallService cinemaHallService;
 
-        public CinemaHallController(ScreeningService screeningService) {
-            this.screeningService = screeningService;
+        public ScreeningController(CinemaHallService cinemaHallService) {
+            this.cinemaHallService = cinemaHallService;
         }
-
-        @GetMapping
+/*
+        @GetMapping("/")
 
         @GetMapping
 
@@ -22,7 +22,7 @@ public class ScreeningController {
         @PatchMapping
 
         @DeleteMapping
-
+*/
 
 }
 

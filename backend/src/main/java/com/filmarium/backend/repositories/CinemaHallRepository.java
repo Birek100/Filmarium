@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface CinemaHallRepository extends JpaRepository {
+public interface CinemaHallRepository extends JpaRepository<CinemaHall, Long> {
     Optional<CinemaHall> findById(Long id);
 }
