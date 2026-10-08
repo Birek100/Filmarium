@@ -1,21 +1,21 @@
 package com.filmarium.backend.entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
 
 @Entity
-@Table(name = "screenings")
-public class Screening {
-
+@Table(name = "seats")
+public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    private Movie movie;
-    private LocalDateTime screeningDate;
+    private int positionY;
+    private int positionX;
+    private SeatType seatType;
+    private int activeSeatId;
     @ManyToOne
     private CinemaHall cinemaHall;
 
-    public Screening() {
+    public Seat() {
     }
 }

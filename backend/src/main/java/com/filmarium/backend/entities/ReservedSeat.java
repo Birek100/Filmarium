@@ -3,15 +3,16 @@ package com.filmarium.backend.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cinema_halls")
-public class CinemaHall {
+@Table(name = "reserved_seats")
+public class ReservedSeat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String screenType;
+    @ManyToOne
+    private Seat seat;
+    @ManyToOne
+    private Screening screening;
 
-    public CinemaHall() {
+    public ReservedSeat() {
     }
 }
-
